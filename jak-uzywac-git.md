@@ -6,7 +6,7 @@
 * Wejdź w utworzony folder w terminalu <small>(cmd/Powershell/git cmd/git bash)</small>
 * Zainicjuj w nim git lfs przy użyciu `git lfs install` - konfiguracja jest już zrobiona (plik .gitattributes) 
 * W unity hub kliknij "Dodaj projekt z dysku" lub "Add project from disk" -> wybierz folder `vigilant-octo-enigma`
-![Dodaj -> dodaj projekt z dysku]([https://i.imgur.com/CE9DHu6.png](https://camo.githubusercontent.com/21b88e60554d0b0e7361152ef476c61f3bb92c08d9a5e7d809e923b07d85e694/68747470733a2f2f692e696d6775722e636f6d2f434539444875362e706e67))
+![Dodaj -> dodaj projekt z dysku](https://camo.githubusercontent.com/21b88e60554d0b0e7361152ef476c61f3bb92c08d9a5e7d809e923b07d85e694/68747470733a2f2f692e696d6775722e636f6d2f434539444875362e706e67)
 * Gotowe!
 
 ## 2. Jak używać git
