@@ -11,7 +11,7 @@
 
 ## 2. Jak używać git
 * Przed rozpoczęciem pracy zawsze przełącz się na branch dev (`git checkout dev`) i zrób `git pull origin dev` (na dev, ważne że w tej kolejności) - zaoszczędzi ci to trochę pracy z merge'owaniem pull requestów
-* Jeśli chcesz rozpocząć pracę nad nową funkcjonalnością, stwórz nowego brancha (`git checkout -b [nazwa-brancha]`), ta komenda przełącza i tworzy brancha, jeśli chcesz się przełączyć użyj `git checkout [nazwa-brancha]`, nazwa powinna być w lowercase, bez znaków specjalnych i używając myślników zamiast spacji: np. `Updated readme.md` -> `updated-readme.md`
+* Jeśli chcesz rozpocząć pracę nad nową funkcjonalnością, stwórz nowego brancha (`git checkout -b [nazwa-brancha]`), ta komenda przełącza i tworzy brancha, jeśli chcesz się przełączyć użyj `git checkout [nazwa-brancha]`, nazwa powinna być w lowercase, bez znaków specjalnych i używając myślników zamiast spacji: np. `Aktualizacja dokumentacji` -> `aktualizacja-dokumentacji`
 * Wykonaj zmiany w kodzie - pamiętaj żeby wykonywać zmiany odpowiednie z przeznaczeniem brancha - od osobnych funkcji twórz osobne branche, zachowując odpowiednie nazewnictwo. Rób częste commity (`git add .`, `git commit`), możesz używać ich jako swojego rodzaju schowek, więcej informacji możesz znaleźć [tutaj](https://www.virtualmaker.dev/blog/git-and-unity-a-comprehensive-guide-to-version-control-for-game-devs). Pamiętaj o poprawnym nazewnictwie
 * Jeśli skończyłeś twoje zadanie, zpushuj brancha na githuba za pomocą `git push -u origin [nazwa-brancha]` (nie dev! sprawdź czy na pewno byłeś na nowym branchu! visual studio znacznie to ułatwia przez gui). Pamiętaj o przetestowaniu twojego kodu, nawet jeśli jest bardzo prosty.
 * Na githubie otwórz nowy pull request: ![Nowy pr](img/pr_create.png)
