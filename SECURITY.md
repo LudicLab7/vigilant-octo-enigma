@@ -34,7 +34,7 @@ Wybierz branch do którego chcesz merge'ować (1), branch z którego chcesz merg
 * W trakcie pracy możesz zauważyć, że będą pojawiać ci się pliki![[img/Zrzut ekranu 2026-02-27 131438.png]]
 * Commituj jak najczęściej ![[img/Zrzut ekranu 2026-02-27 131717.png]]
 * Po zakończonej pracy wysyłasz wszystko do repozytorium ![[img/Zrzut ekranu 2026-02-27 131732.png]]
-* Oraz tworzysz pull request aby ktoś przejrzał twój kod i dodał go do repozytorium![[img/Zrzut ekranu 2026-02-27 131745.png]] ![[Zrzut ekranu 2026-02-27 131751.png]]
+* Oraz tworzysz pull request aby ktoś przejrzał twój kod i dodał go do repozytorium![[img/Zrzut ekranu 2026-02-27 131745.png]] ![[img/Zrzut ekranu 2026-02-27 131751.png]]
 * Zawsze wybierasz base: dev ![[img/Zrzut ekranu 2026-02-27 131759.png]]
 * Gdy klikniesz create pull request przeniesie cię na stronę githuba tam uzupełniasz wszystkie detale i wysyłasz do weryfikacji ![[img/Zrzut ekranu 2026-02-27 131934.png]]
 * To wszystko klikasz create pull request i kwestionujesz swoje wybory życiowe
