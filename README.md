@@ -2,7 +2,7 @@
 Gra w unity wip 
 > Lubie placki - egapcio \
 > K - Devkraft \
-> AMOGUS \
+> AMOGUS - Ktoś\
 > Kupa - Myszka30
 
 # Contributors
