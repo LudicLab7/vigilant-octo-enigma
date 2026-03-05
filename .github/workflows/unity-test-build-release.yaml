@@ -72,7 +72,7 @@ jobs:
           name: Build-StandaloneWindows64
           path: build/StandaloneWindows64
 
-    release:
+  release:
     needs: build
     runs-on: ubuntu-latest
     permissions:
