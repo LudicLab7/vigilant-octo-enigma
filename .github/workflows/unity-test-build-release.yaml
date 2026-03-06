@@ -21,22 +21,16 @@ jobs:
           key: Library-${{ hashFiles('**/Packages/manifest.json') }}
           restore-keys: Library-
 
-      - name: Setup Unity
-        uses: game-ci/unity-setup-action@v2
-        with:
-          version: 6000.3.8f1
-
-      - name: Run tests
+      - name: Run Unity tests
         shell: pwsh
         run: |
-          & "$env:UNITY_PATH/Editor/Unity.exe" `
-            -batchmode `
-            -projectPath "." `
-            -runTests `
-            -testResults "test-results.xml" `
-            -testPlatform editmode `
-            -logFile "test-log.txt"
-          exit $LASTEXITCODE
+          $unityPath = "C:\Program Files\Unity\Hub\Editor\6000.3.8f1\Editor\Unity.exe"
+          if (-not (Test-Path $unityPath)) {
+            Write-Error "Unity 6000.3.8f1 not found at $unityPath"
+            exit 1
+          }
+          & $unityPath -batchmode -projectPath "." -runTests -testResults "test-results.xml" -testPlatform editmode -logFile "test-log.txt" -quit
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
       - name: Upload test results
         if: always()
@@ -63,21 +57,17 @@ jobs:
           key: Library-${{ hashFiles('**/Packages/manifest.json') }}
           restore-keys: Library-
 
-      - name: Setup Unity
-        uses: game-ci/unity-setup-action@v2
-        with:
-          version: 6000.3.8f1
-
-      - name: Build project
+      - name: Build Unity project
         shell: pwsh
         run: |
-          & "$env:UNITY_PATH/Editor/Unity.exe" `
-            -batchmode `
-            -projectPath "." `
-            -buildTarget StandaloneWindows64 `
-            -executeMethod UnityEditor.BuildPlayerWindow.DefaultBuildMethods.BuildPlayer `
-            -logFile "build-log.txt"
-          exit $LASTEXITCODE
+          $unityPath = "C:\Program Files\Unity\Hub\Editor\6000.3.8f1\Editor\Unity.exe"
+          if (-not (Test-Path $unityPath)) {
+            Write-Error "Unity 6000.3.8f1 not found at $unityPath"
+            exit 1
+          }
+          New-Item -ItemType Directory -Force -Path "build/StandaloneWindows64"
+          & $unityPath -batchmode -projectPath "." -buildTarget StandaloneWindows64 -buildPath "build/StandaloneWindows64" -logFile "build-log.txt" -quit
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
       - name: Upload build
         uses: actions/upload-artifact@v4
@@ -99,8 +89,7 @@ jobs:
 
       - name: Pack build into zip
         shell: pwsh
-        run: |
-          Compress-Archive -Path "build/StandaloneWindows64/*" -DestinationPath "build/CI-Build-Windows.zip" -Force
+        run: Compress-Archive -Path "build/StandaloneWindows64/*" -DestinationPath "build/CI-Build-Windows.zip" -Force
 
       - uses: softprops/action-gh-release@v2
         with:
