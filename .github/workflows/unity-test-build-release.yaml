@@ -8,7 +8,6 @@ on:
 jobs:
   test:
     runs-on: self-hosted
-     
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -20,24 +19,37 @@ jobs:
         with:
           path: Library
           key: Library-${{ hashFiles('**/Packages/manifest.json') }}
-          restore-keys: |
-            Library-
+          restore-keys: Library-
 
-      - name: Run EditMode and PlayMode tests
-        uses: game-ci/unity-test-runner@v4
-        env:
-          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
-          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
-          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+      - name: Setup Unity
+        uses: game-ci/unity-setup-action@v2
         with:
-          unityVersion: 6000.3.8f1
-          testMode: all
-          artifactsPath: test-results
+          version: 6000.3.8f1
+
+      - name: Run tests
+        shell: pwsh
+        run: |
+          & "$env:UNITY_PATH/Editor/Unity.exe" `
+            -batchmode `
+            -projectPath "." `
+            -runTests `
+            -testResults "test-results.xml" `
+            -testPlatform editmode `
+            -logFile "test-log.txt"
+          exit $LASTEXITCODE
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: |
+            test-results.xml
+            test-log.txt
 
   build:
     needs: test
     runs-on: self-hosted
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -49,25 +61,28 @@ jobs:
         with:
           path: Library
           key: Library-${{ hashFiles('**/Packages/manifest.json') }}
-          restore-keys: |
-            Library-
+          restore-keys: Library-
+
+      - name: Setup Unity
+        uses: game-ci/unity-setup-action@v2
+        with:
+          version: 6000.3.8f1
 
       - name: Build project
-        uses: game-ci/unity-builder@v4
-        env:
-          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
-          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
-          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-        with:
-          unityVersion: 6000.3.8f1
-          targetPlatform: StandaloneWindows64
-          buildsPath: build
-          buildName: CI-Build
+        shell: pwsh
+        run: |
+          & "$env:UNITY_PATH/Editor/Unity.exe" `
+            -batchmode `
+            -projectPath "." `
+            -buildTarget StandaloneWindows64 `
+            -executeMethod UnityEditor.BuildPlayerWindow.DefaultBuildMethods.BuildPlayer `
+            -logFile "build-log.txt"
+          exit $LASTEXITCODE
 
-      - name: Upload build artifact
+      - name: Upload build
         uses: actions/upload-artifact@v4
         with:
-          name: Build-StandaloneWindows64
+          name: Build-Windows
           path: build/StandaloneWindows64
 
   release:
@@ -76,28 +91,23 @@ jobs:
     permissions:
       contents: write
     environment: release-env
-
     steps:
-      - name: Download build artifact
-        uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v4
         with:
-          name: Build-StandaloneWindows64
-          path: build/StandaloneWindows64
-          merge-multiple: true
+          name: Build-Windows
+          path: build/
 
       - name: Pack build into zip
+        shell: pwsh
         run: |
-          cd build
-          zip -r CI-Build-StandaloneWindows64.zip StandaloneWindows64
+          Compress-Archive -Path "build/StandaloneWindows64/*" -DestinationPath "build/CI-Build-Windows.zip" -Force
 
-      - name: Create pre-release
-        uses: softprops/action-gh-release@v2
+      - uses: softprops/action-gh-release@v2
         with:
           tag_name: v0.1.0-dev-${{ github.sha }}
           name: Pre-release dev-${{ github.sha }}
           prerelease: true
           generate_release_notes: true
-          files: build/CI-Build-StandaloneWindows64.zip
-          overwrite_files: true
+          files: build/CI-Build-Windows.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
