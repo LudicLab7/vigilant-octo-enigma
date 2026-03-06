@@ -25,11 +25,14 @@ jobs:
         shell: pwsh
         run: |
           $unityPath = "C:\Program Files\Unity\Hub\Editor\6000.3.8f1\Editor\Unity.exe"
-          if (-not (Test-Path $unityPath)) {
-            Write-Error "Unity 6000.3.8f1 not found at $unityPath"
-            exit 1
+          Write-Output "Unity path: $unityPath"
+          if (-not (Test-Path $unityPath)) { 
+            Get-ChildItem "C:\Program Files\Unity\Hub\Editor" -Recurse -Name "Unity.exe"
+            exit 1 
           }
-          & $unityPath -batchmode -projectPath "." -runTests -testResults "test-results.xml" -testPlatform editmode -logFile "test-log.txt" -quit
+          & $unityPath -batchmode -projectPath "." -runTests -testResults "test-results.xml" -testPlatform editmode -logFile "unity-test.log" -quit -nographics
+          Write-Output "Test exit code: $LASTEXITCODE"
+          Get-Content "unity-test.log" -Tail 20
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
       - name: Upload test results
@@ -39,7 +42,7 @@ jobs:
           name: test-results
           path: |
             test-results.xml
-            test-log.txt
+            unity-test.log
 
   build:
     needs: test
@@ -61,19 +64,24 @@ jobs:
         shell: pwsh
         run: |
           $unityPath = "C:\Program Files\Unity\Hub\Editor\6000.3.8f1\Editor\Unity.exe"
-          if (-not (Test-Path $unityPath)) {
-            Write-Error "Unity 6000.3.8f1 not found at $unityPath"
-            exit 1
+          Write-Output "Unity path: $unityPath"
+          if (-not (Test-Path $unityPath)) { exit 1 }
+          $buildPath = "build/CI-Build.exe"
+          New-Item -ItemType Directory -Force -Path "build" | Out-Null
+          Write-Output "Building to: $buildPath"
+          & $unityPath -batchmode -projectPath "." -buildWindowsPlayer $buildPath -logFile "unity-build.log" -quit -nographics
+          Write-Output "Build exit code: $LASTEXITCODE"
+          if ($LASTEXITCODE -ne 0) { 
+            Get-Content "unity-build.log" -Tail 50
+            exit $LASTEXITCODE 
           }
-          New-Item -ItemType Directory -Force -Path "build/StandaloneWindows64"
-          & $unityPath -batchmode -projectPath "." -buildTarget StandaloneWindows64 -buildPath "build/StandaloneWindows64" -logFile "build-log.txt" -quit
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          ls build
 
       - name: Upload build
         uses: actions/upload-artifact@v4
         with:
           name: Build-Windows
-          path: build/StandaloneWindows64
+          path: build
 
   release:
     needs: build
@@ -89,7 +97,7 @@ jobs:
 
       - name: Pack build into zip
         shell: pwsh
-        run: Compress-Archive -Path "build/StandaloneWindows64/*" -DestinationPath "build/CI-Build-Windows.zip" -Force
+        run: Compress-Archive -Path "build/*" -DestinationPath "build/CI-Build-Windows.zip" -Force
 
       - uses: softprops/action-gh-release@v2
         with:
