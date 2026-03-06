@@ -72,7 +72,7 @@ jobs:
           name: Build-StandaloneWindows64
           path: build/StandaloneWindows64
 
-  release:
+    release:
     needs: build
     runs-on: ubuntu-latest
     permissions:
@@ -87,10 +87,10 @@ jobs:
           path: build/StandaloneWindows64
           merge-multiple: true
 
-      - name: Debug list files
+      - name: Pack build into zip
         run: |
-          echo "=== tree build ==="
-          find build -maxdepth 5 -type f | sed 's/^/  /'
+          cd build
+          zip -r CI-Build-StandaloneWindows64.zip StandaloneWindows64
 
       - name: Create pre-release
         uses: softprops/action-gh-release@v2
@@ -99,6 +99,7 @@ jobs:
           name: Pre-release dev-${{ github.sha }}
           prerelease: true
           generate_release_notes: true
-          files: build/StandaloneWindows64/**
+          files: build/CI-Build-StandaloneWindows64.zip
+          overwrite_files: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
