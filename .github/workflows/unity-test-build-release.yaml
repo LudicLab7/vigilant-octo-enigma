@@ -1,16 +1,14 @@
 name: Unity Test Build Release
 
 on:
-  push:
-    branches: [ main ]
   pull_request:
     branches: [ main ]
   workflow_dispatch:   # przycisk "Run workflow" w Actions tab
 
 jobs:
   test:
-    runs-on: ubuntu-latest
-
+    runs-on: self-hosted
+     
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -38,7 +36,7 @@ jobs:
 
   build:
     needs: test
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       - name: Checkout
@@ -72,9 +70,9 @@ jobs:
           name: Build-StandaloneWindows64
           path: build/StandaloneWindows64
 
-    release:
+  release:
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     permissions:
       contents: write
     environment: release-env
