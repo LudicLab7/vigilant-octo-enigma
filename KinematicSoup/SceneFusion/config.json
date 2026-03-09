@@ -4,6 +4,6 @@
 	"scene": "MainMenu",
 	"creator": "Myszka30",
 	"version": "2.0.4",
-	"port": 8000,
+	"port": 50076,
 	"application": "Unity 6000.3.8f1"
 }

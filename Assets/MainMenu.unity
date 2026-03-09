@@ -2003,7 +2003,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e2855ee904c0b264cad20cd718433404, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 558.01
+      value: 553.51
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e2855ee904c0b264cad20cd718433404, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2349,7 +2349,7 @@ Transform:
   m_GameObject: {fileID: 1226203708}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 551.46, y: 7.99, z: 2419.29}
+  m_LocalPosition: {x: 542.29, y: 9.2, z: 2440.17}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2729,7 +2729,7 @@ Transform:
   m_GameObject: {fileID: 1465143445}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 557.1843, y: 1.41, z: 2419.26}
+  m_LocalPosition: {x: 574.6, y: 6.7, z: 2430.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2839,6 +2839,51 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1679020638
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1679020640}
+  - component: {fileID: 1679020639}
+  m_Layer: 0
+  m_Name: Scene Fusion Guids
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1679020639
+MonoBehaviour:
+  m_ObjectHideFlags: 16
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679020638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43191526341804940a1becb7292d53a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: KinematicSoup.SceneFusion::KS.SceneFusion2.Unity.sfGuidList
+  ObjectGuids: []
+--- !u!4 &1679020640
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679020638}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1751074855
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3586,3 +3631,4 @@ SceneRoots:
   - {fileID: 82457477}
   - {fileID: 1465143449}
   - {fileID: 1121471533}
+  - {fileID: 1679020640}
