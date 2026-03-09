@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 65d34364488f4a545a0152a1ca963cc9
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 285247
+  packageName: Scene Fusion 2 Lite - Real-time Collaboration
+  packageVersion: 2.0.4
+  assetPath: Packages/com.kinematicsoup.scenefusion2lite/Source/Editor/Terrain/sfDetailPrototypeSync.cs
+  uploadId: 825112

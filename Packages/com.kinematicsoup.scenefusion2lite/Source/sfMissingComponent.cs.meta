@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: c3e04682d88f7db4582315001d7c6c3d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 285247
+  packageName: Scene Fusion 2 Lite - Real-time Collaboration
+  packageVersion: 2.0.4
+  assetPath: Packages/com.kinematicsoup.scenefusion2lite/Source/sfMissingComponent.cs
+  uploadId: 825112

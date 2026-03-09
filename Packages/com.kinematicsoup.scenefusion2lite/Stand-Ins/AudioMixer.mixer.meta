@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e80865228b26d8449b68da1f40bf1793
+timeCreated: 1452894863
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 285247
+  packageName: Scene Fusion 2 Lite - Real-time Collaboration
+  packageVersion: 2.0.4
+  assetPath: Packages/com.kinematicsoup.scenefusion2lite/Stand-Ins/AudioMixer.mixer
+  uploadId: 825112

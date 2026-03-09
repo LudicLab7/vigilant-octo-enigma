@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 8616de8e750682e42b7cdc3857388e99
+timeCreated: 1479157425
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 285247
+  packageName: Scene Fusion 2 Lite - Real-time Collaboration
+  packageVersion: 2.0.4
+  assetPath: Packages/com.kinematicsoup.scenefusion2lite/Stand-Ins/Scene.unity
+  uploadId: 825112

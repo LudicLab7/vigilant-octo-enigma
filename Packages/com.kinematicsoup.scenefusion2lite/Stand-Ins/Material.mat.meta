@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 34d272f20a283e84a8e51b6e1034b6f8
+timeCreated: 1452894863
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 285247
+  packageName: Scene Fusion 2 Lite - Real-time Collaboration
+  packageVersion: 2.0.4
+  assetPath: Packages/com.kinematicsoup.scenefusion2lite/Stand-Ins/Material.mat
+  uploadId: 825112

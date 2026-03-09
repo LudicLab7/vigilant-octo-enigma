@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 0c9d133dc27a08b4cb90049f01c6db46
+timeCreated: 1464283374
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 285247
+  packageName: Scene Fusion 2 Lite - Real-time Collaboration
+  packageVersion: 2.0.4
+  assetPath: Packages/com.kinematicsoup.scenefusion2lite/Shaders/Drag.shader
+  uploadId: 825112

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 1ce1b5ed0016d994ea135e08c8119ada
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 285247
+  packageName: Scene Fusion 2 Lite - Real-time Collaboration
+  packageVersion: 2.0.4
+  assetPath: Packages/com.kinematicsoup.scenefusion2lite/Source/Editor/Translators/sfPrefabTranslator.cs
+  uploadId: 825112

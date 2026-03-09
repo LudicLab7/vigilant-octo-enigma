@@ -1,0 +1,9 @@
+{
+	"projectId": 1,
+	"projectName": "vigilant-octo-enigma",
+	"scene": "MainMenu",
+	"creator": "Myszka30",
+	"version": "2.0.4",
+	"port": 8000,
+	"application": "Unity 6000.3.8f1"
+}

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: cc1739bf638ce844d82ebf778add483d
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 285247
+  packageName: Scene Fusion 2 Lite - Real-time Collaboration
+  packageVersion: 2.0.4
+  assetPath: Packages/com.kinematicsoup.scenefusion2lite/Prefabs/ksVive.prefab
+  uploadId: 825112

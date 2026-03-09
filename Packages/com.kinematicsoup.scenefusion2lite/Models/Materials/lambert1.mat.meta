@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 3b123744dc41f43439e5bb2366416917
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 285247
+  packageName: Scene Fusion 2 Lite - Real-time Collaboration
+  packageVersion: 2.0.4
+  assetPath: Packages/com.kinematicsoup.scenefusion2lite/Models/Materials/lambert1.mat
+  uploadId: 825112

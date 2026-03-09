@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 16e741473368e6f41a9935e95d78afdf
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 285247
+  packageName: Scene Fusion 2 Lite - Real-time Collaboration
+  packageVersion: 2.0.4
+  assetPath: Packages/com.kinematicsoup.scenefusion2lite/Stand-Ins/LightingData.asset
+  uploadId: 825112

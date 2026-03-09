@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 83c10ff25a2753f439d38ef1f81a3444
+timeCreated: 1479243417
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 285247
+  packageName: Scene Fusion 2 Lite - Real-time Collaboration
+  packageVersion: 2.0.4
+  assetPath: Packages/com.kinematicsoup.scenefusion2lite/Shaders/Missing.shader
+  uploadId: 825112

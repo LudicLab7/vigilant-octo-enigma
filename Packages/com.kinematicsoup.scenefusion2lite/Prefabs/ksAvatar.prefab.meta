@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 400dd9256975b994788ea65561755849
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 285247
+  packageName: Scene Fusion 2 Lite - Real-time Collaboration
+  packageVersion: 2.0.4
+  assetPath: Packages/com.kinematicsoup.scenefusion2lite/Prefabs/ksAvatar.prefab
+  uploadId: 825112

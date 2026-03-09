@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: c47ff71cc94d8364c84c4e64aef2f7d9
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 285247
+  packageName: Scene Fusion 2 Lite - Real-time Collaboration
+  packageVersion: 2.0.4
+  assetPath: Packages/com.kinematicsoup.scenefusion2lite/Source/Editor/KinematicSoup.SceneFusion.Editor.asmdef
+  uploadId: 825112
