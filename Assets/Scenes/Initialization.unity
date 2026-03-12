@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1f96f32573db724b918a761a13eb784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Initializer
-  loadingScreenScene: {fileID: 102900000, guid: d9d8930ba026c014ca8ecc830de03bc0, type: 3}
+  loadingScreenScene: {fileID: 102900000, guid: 55f3faa345e6cdd45a73c2bf418105cf, type: 3}
   mainMenuScene: {fileID: 102900000, guid: 2d1b1f16d2ee28048b52a785833713b3, type: 3}
   taskList:
   - {fileID: 4025200059991920517, guid: 06f13fe711c8bcb44b2a2849e9bf74f0, type: 3}
