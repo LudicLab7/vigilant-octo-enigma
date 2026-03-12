@@ -10,5 +10,6 @@ public class SpawnDebugUi : SceneTask
         Instantiate(debugUi);
         // debugUi.SetActive(true);
         // DontDestroyOnLoad(debugUi);
+        this.isFinished = true;
     }
 }
