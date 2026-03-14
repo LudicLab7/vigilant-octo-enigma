@@ -1,8 +1,8 @@
 using UnityEngine;
-using UnityEditor;
 using UnityEngine.SceneManagement;
+using UnityEditor;
+using System.Collections;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 public class Initializer : MonoBehaviour
 {
@@ -11,13 +11,56 @@ public class Initializer : MonoBehaviour
 
     [SerializeField] private List<SceneTask> taskList;
 
+    bool timeFinished = false;
+    bool tasksFinished = false;
+
     void Start()
     {
+        DontDestroyOnLoad(gameObject);
         SceneManager.LoadScene(loadingScreenScene.name);
+
+        StartCoroutine(WaitMinimumTime());
+        StartCoroutine(RunTasks());
+    }
+
+    IEnumerator WaitMinimumTime()
+    {
+        yield return new WaitForSeconds(1f);
+        timeFinished = true;
+        TryFinish();
+    }
+
+    IEnumerator RunTasks()
+    {
         foreach (var task in taskList)
-        {
             task.Init();
+
+        bool done = false;
+
+        while (!done)
+        {
+            done = true;
+
+            foreach (var task in taskList)
+            {
+                if (!task.isFinished)
+                {
+                    done = false;
+                    break;
+                }
+            }
+
+            yield return null;
         }
-        SceneManager.LoadScene(mainMenuScene.name);
+
+        tasksFinished = true;
+        TryFinish();
+    }
+
+    void TryFinish()
+    {
+        Debug.Log("trying to finish");
+        if (timeFinished && tasksFinished)
+            SceneManager.LoadScene(mainMenuScene.name);
     }
 }
